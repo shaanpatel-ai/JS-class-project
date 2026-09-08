@@ -40,12 +40,12 @@
         <script>
             function Palindrome(myString){
                 var input = myString.replace(/[^A-Z0-9]/ig,"").toLowerCase();
-                var reversesInput = input.split('').revers().join('');
+                var reversesInput = input.split('').reverse().join('');
                 if (input === reversesInput){
-                    document.getElementById("result").innerHTML = myString + "is a palindrome"
+                    document.getElementById("result").innerHTML = myString + " is a palindrome"
                 }
                 else{
-                    document.getElementById("result").innerHTML = myString + "is not a palindrome"
+                    document.getElementById("result").innerHTML = myString + " is not a palindrome"
                 }
             }
             var str=prompt("enter a word: ")

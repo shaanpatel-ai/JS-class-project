@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your work list</title>
+        <style>
+            body{
+                background-color: lightcoral;
+                text-align: center;
+                font-family:'Gill Sans';
+                padding-top:150px;;
+            }
+            h3{
+                color: #333;
+            }
+            #myForm{
+                margin-bottom: 30px;
+            }
+            #myInput{
+                padding: 10px;
+                width: 250px;
+                border: 1px solid #ccc;
+            }
+            #myForm button{
+                padding: 10px 15px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            #myItem{
+                padding: 0;
+                width: 400px;
+            }
+            #myItem li{
+                background-color: white;
+                padding: 20px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+            }
+            #myItem li button{
+                background-color: #f44336;
+                color:white;
+                border: none;
+                padding: 6px 10px;
+                border-radius: 4px;
+                color: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Your work list</h3>
+        <form id="myForm">
+        <input id="myInput" type="text">
+        <button>Add</button>
+        </form>
+        <h3>To do list</h3>
+        <ul id="myItem"></ul>
+        <script>
+            var myForm = document.getElementById("myForm");
+            var myInput = document.getElementById("myInput");
+            var myItem = document.getElementById("myItem");
+            myForm.addEventListener("submit",function(event){
+                event.preventDefault()
+                createItem(myInput.value)
+            })
+            function createItem(inputItems){
+                var items = `<li>${inputItems}
+                    <button onclick="deletElement(this)">done</button> </li>`
+                        myItem.insertAdjacentHTML("beforeend",items)
+                        myInput.value=""
+                        myInput.foucs()
+                }
+                function deletElement(ElementToDelete){
+                    ElementToDelete.parentElement.remove()
+                }
+        </script>
+    </body>
+</html>
